@@ -7,8 +7,8 @@ function GameManager() {
 
 module.exports = GameManager;
 
-GameManager.prototype.start = function(port) {
-    this.server = webSocket.createServer(this.onConnect.bind(this)).listen(port);
+GameManager.prototype.start = function(port, host) {
+    this.server = webSocket.createServer(this.onConnect.bind(this)).listen(port, host);
     console.log('Server started at port: ' + port);
 }
 
