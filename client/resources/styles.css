@@ -1,0 +1,123 @@
+body {
+    font-family: 'Fredoka One', cursive;
+    background-color: #333;
+    color: #EEE;
+    padding: 0;
+    margin: 0;
+}
+
+.mask {
+    background-color: #000;
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.window {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: #333;
+    z-index: 20;
+    border-radius: 30px;
+    text-align: center;
+    border: 5px solid #555;
+}
+
+.start-window {
+    height: 400px;
+    margin-top: -200px;
+    width: 600px;
+    margin-left: -300px;
+}
+
+.start-window h1 {
+    margin: 40px 0 50px 0;
+    font-size: 80px;
+    font-weight: normal;
+    text-shadow: 0.1em 0.1em 0 #222;
+    color: #CCC;
+}
+
+.message-window {
+    height: 250px;
+    margin-top: -125px;
+    width: 500px;
+    margin-left: -250px;
+    display: table;
+}
+
+.message-window p {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: normal;
+    text-shadow: 0.1em 0.1em 0 #222;
+    color: #CCC;
+}
+
+.window input {
+    text-align: center;
+    margin: 10px auto;
+    display: block;
+    font-family: 'Fredoka One', cursive;
+    border-radius: 10px;
+    padding: 10px;
+    color: #CCC;
+}
+
+.window input:focus {
+    outline: none;
+}
+
+.window input[type="text"] {
+    font-size: 25px;
+    border: 2px solid #666;
+    background-color: transparent;
+    width: 250px;
+}
+
+.window input[type="text"]:focus {
+    border-color: #CCC;
+    background-color: #444;
+}
+
+.window .button {
+    font-size: 30px;
+    width: 140px;
+    background-color: transparent;
+    border: 2px solid red;
+    margin-top: 30px;
+    background-color: #960000;
+    box-shadow: 0 2px 0px 5px #5a0101;
+}
+
+.window .button:hover {
+    margin-top: 27px;
+    background-color: #b10000;
+    box-shadow: 0 5px 0px 5px #5a0101;
+    margin-bottom: 13px;
+}
+
+.window .button:active {
+    margin-top: 32px;
+    background-color: #b10000;
+    box-shadow: 0 0 0px 5px #5a0101;
+    margin-bottom: 8px;
+}
+
+.window form:invalid input[type="submit"],
+.window form:invalid input[type="submit"]:hover,
+.window form:invalid input[type="submit"]:active {
+    opacity: 0.3;
+    margin-top: 30px;
+    background-color: #960000;
+    box-shadow: 0 2px 0px 5px #5a0101;
+}

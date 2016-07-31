@@ -1,0 +1,15 @@
+{
+  "name": "space-duel-js-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "guid": "0.0.12",
+    "nodejs-websocket": "^1.6.0"
+  }
+}

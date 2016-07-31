@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Space Duel</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet"></link>
+
+    <link href="./resources/styles.css" rel="stylesheet"></link>
+
+    <script src="./lib/util.js"></script>
+    <script src="./lib/network.js"></script>
+    <script src="./lib/game.js"></script>
+    <script src="./lib/vector.js"></script>
+    <script src="./lib/player.js"></script>
+    <script src="./lib/bullet.js"></script>
+    <script src="./lib/planet.js"></script>
+</head>
+
+<body>
+    <div id="mask" class="mask"></div>
+
+    <div id="startWindow" class="window start-window" style="visibility:visible">
+        <h1>Space Duel</h1>
+        <form onsubmit="return onStartFormSubmit()">
+            <input id="nameField" type="text" maxlength="10" minlength="3" pattern="^[a-zA-Z0-9][a-zA-Z0-9-_\.\s]{1,10}$" autocomplete="off" autofocus required placeholder="Name" />
+            <input class="button" type="submit" value="Start" />
+        </form>
+    </div>
+
+    <div id="messageWindow" class="window message-window"></div>
+
+    <script>
+        var SERVER_URL = 'ws://127.0.0.1:8001/';
+
+        var LEVEL_WIDTH = 800;
+        var LEVEL_HEIGHT = 600;
+
+        var game = new Game(LEVEL_WIDTH, LEVEL_HEIGHT, [
+            new Player(100, LEVEL_HEIGHT - 100, deg2rad(360 - 45), new Vector(0, 0), Player.ACTION_STILL, 'rgba(0, 255, 255, 1)', 30, LEVEL_HEIGHT - 60, 'right'),
+            new Player(LEVEL_WIDTH - 100, 100, deg2rad(45 * 3), new Vector(0, 0), Player.ACTION_STILL, 'rgba(255, 255, 0, 1)', LEVEL_WIDTH - 30, 60, 'left'),
+        ], [
+            new Planet(LEVEL_WIDTH / 2, LEVEL_HEIGHT / 2, 50, 5, 'green')
+        ]);
+
+        function onStartFormSubmit() {
+            var nameField = document.getElementById('nameField'),
+                startWindow = document.getElementById('startWindow'),
+                mask = document.getElementById('mask');
+
+            mask.style.visibility = 'hidden';
+            startWindow.style.visibility = 'hidden';
+
+            game.startMultiPlayer(SERVER_URL, nameField.value);
+
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
